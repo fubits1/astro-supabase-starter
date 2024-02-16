@@ -12,6 +12,7 @@ const { data, error } = await supabase.from(tableName).select('*');
 const tableKeys = data?.length ? Object.keys(data[0]) : [];
 if (error) {
   console.error(error);
+  throw error;
 }
 ---
 
