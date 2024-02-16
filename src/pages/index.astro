@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DataList from '../components/DataList.astro';
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <DataList tableName={'countries'} />
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 920px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>

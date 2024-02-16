@@ -1,0 +1,43 @@
+---
+import { supabase } from '../db/supabase';
+
+/** the name of the DB table in Supabase
+ * passed as a prop to the Astro component in
+ * `src/index.astro`
+ */
+/** @prop tableName {string} */
+const { tableName } = Astro.props;
+
+const { data, error } = await supabase.from(tableName).select('*');
+const tableKeys = data?.length ? Object.keys(data[0]) : [];
+if (error) {
+  console.error(error);
+}
+---
+
+{
+  tableKeys.length ? (
+    <table>
+      <thead>
+        <tr>
+          {tableKeys.map((key) => (
+            <th>{key}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {data?.map((entry) => (
+          <tr>
+            {tableKeys.map((key) => (
+              <td>{entry[key]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  ) : (
+    <p>{!tableName ? 'No table name provided to <DataList />' : 'No data'}</p>
+  )
+}
+
+<style></style>
