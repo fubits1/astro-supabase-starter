@@ -6,6 +6,8 @@ const tableName = import.meta.env.DB_TABLE_NAME;
 
 <Layout title="Welcome to Astro.">
   <main>
+    <h1>Supabase with Astro (SSR Example)</h1>
+    <code>Repo: <a href="https://github.com/fubits1/astro-supabase-starter">github.com/fubits1/astro-supabase-starter</a></code>
     <DataList tableName={tableName} />
   </main>
 </Layout>
@@ -14,9 +16,10 @@ const tableName = import.meta.env.DB_TABLE_NAME;
   main {
     margin: 0 auto;
     padding: 1rem;
-    width: 920px;
     color: white;
-    font-size: 20px;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 </style>
