@@ -1,13 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import DataList from '../components/DataList.astro';
-const tableName = import.meta.env.DB_TABLE_NAME;
+const tableName =
+  import.meta.env.MODE === 'development'
+    ? import.meta.env.DB_TABLE_NAME
+    : process.env.DB_TABLE_NAME;
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <h1>Supabase with Astro (SSR Example)</h1>
-    <code>Repo: <a href="https://github.com/fubits1/astro-supabase-starter">github.com/fubits1/astro-supabase-starter</a></code>
+    <code
+      >Repo: <a href="https://github.com/fubits1/astro-supabase-starter"
+        >github.com/fubits1/astro-supabase-starter</a
+      ></code
+    >
     <DataList tableName={tableName} />
   </main>
 </Layout>
