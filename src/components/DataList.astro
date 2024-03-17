@@ -11,8 +11,8 @@ const { tableName } = Astro.props;
 const { data, error } = await supabase.from(tableName).select('*');
 const tableKeys = data?.length ? Object.keys(data[0]) : [];
 if (error) {
-  console.error(error);
-  throw error;
+  // console.error(error?.message);
+  throw new Error(`Error: ${error?.message} (error code: ${error?.code})`);
 }
 ---
 
