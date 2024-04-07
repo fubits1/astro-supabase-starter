@@ -9,12 +9,6 @@
 1. Create a new Supabase project; add some data (e.g. upload a CSV and note the table name)
 2. add Supabase URL, Auth and the table name for your project to `.env` file (see `.env.example`) ([Documentation](https://supabase.com/docs/reference/javascript/initializing))
 
-  ```astro
-  <DataList tableName />
-  ```
-
-> Consider moving the table name to the .env variable as well
-
 ### Astro
 
 - `pnpm install`
