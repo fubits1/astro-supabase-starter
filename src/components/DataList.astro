@@ -8,7 +8,7 @@ import { supabase } from '../db/supabase';
 /** @prop tableName {string} */
 const { tableName } = Astro.props;
 
-const { data, error } = await supabase.from(tableName).select('*');
+const { data, error } = await supabase.from(tableName).select('*').order('name', { ascending: true });
 const tableKeys = data?.length ? Object.keys(data[0]) : [];
 if (error) {
   // console.error(error?.message);
